@@ -26,7 +26,7 @@ SECONDARY OPTIONS:\n
   --yarn              🧶 Initialize with yarn\n
   --localhost         🏡 Deploy localhost program\n
   --goerli            🚧 Deploy goerli program\n
-  --mainnet           🎉 Deploy mainnet program\n
+  --mainnet           🌍 Deploy mainnet program\n
 Secondary options only apply for init and deploy\n`;
 
 if (process.argv[2] == null) {
