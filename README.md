@@ -9,7 +9,7 @@ A light framework for Hardhat smart contract development
 Install with [**npm**](https://www.npmjs.com):
 
 ```
-npm install @0xver/shell
+npm install --save-dev @0xver/shell
 ```
 
 ```
@@ -27,7 +27,7 @@ shell init
 Install with [**yarn**](https://classic.yarnpkg.com):
 
 ```
-yarn install @0xver/shell
+yarn add --dev @0xver/shell
 ```
 
 ```
