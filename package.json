@@ -1,0 +1,22 @@
+{
+  "name": "@0xver/shell",
+  "license": "GPL-3.0-only",
+  "version": "1.0.0",
+  "description": "A light framework for Hardhat smart contract development",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xver/shell.git"
+  },
+  "main": "cli/shell.js",
+  "scripts": {
+    "lint": "prettier --write **.js **.sol"
+  },
+  "bin": {
+    "shell": "cli/shell.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.24"
+  }
+}
