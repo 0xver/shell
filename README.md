@@ -4,7 +4,7 @@
 
 A light framework for Hardhat smart contract development
 
-## Npm Installation
+## Installation using Node Package Manager
 
 Install with [**npm**](https://www.npmjs.com):
 
@@ -16,13 +16,13 @@ npm install --save-dev @0xver/shell
 cd node_modules/@0xver/shell; npm link; cd
 ```
 
-Return to repository location and initialize project
+Return to repository location and initialize project:
 
 ```
 shell init
 ```
 
-## Yarn Installation
+## Installation using Yarn
 
 Install with [**yarn**](https://classic.yarnpkg.com):
 
@@ -34,7 +34,7 @@ yarn add --dev @0xver/shell
 cd node_modules/@0xver/shell; yarn link; cd
 ```
 
-Return to repository location and initialize project
+Return to repository location and initialize project:
 
 ```
 shell init --yarn
@@ -42,7 +42,7 @@ shell init --yarn
 
 ## Getting Started
 
-List all commands
+List all commands:
 
 ```
 shell
@@ -50,7 +50,7 @@ shell
 
 ## Compile
 
-Compile program
+Compile program:
 
 ```
 shell compile
@@ -58,7 +58,7 @@ shell compile
 
 ## Test
 
-Test program with Hardhat network
+Test program with Hardhat network:
 
 ```
 shell test
@@ -66,7 +66,7 @@ shell test
 
 ## Deploy
 
-Deploy localhost program by running node in seperate terminal window
+Deploy localhost program by running node in seperate terminal window:
 
 ```
 shell node
@@ -76,13 +76,13 @@ shell node
 shell deploy --localhost
 ```
 
-Deploy goerli program
+Deploy goerli program:
 
 ```
 shell deploy --goerli
 ```
 
-Deploy mainnet program
+Deploy mainnet program:
 
 ```
 shell deploy --mainnet
