@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 import { copyFileSync, mkdirSync, readFileSync } from "node:fs";
 import { exec } from "node:child_process";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const json = JSON.parse(readFileSync("package.json", "utf8"));
 const version = json.version;
 const ascii = `  ██████  ██░ ██ ▓█████  ██▓     ██▓    
@@ -148,68 +152,60 @@ if (
   try {
     const src = new URL(process.cwd().concat("/src"), import.meta.url);
     mkdirSync(src);
+
     const scripts = new URL(process.cwd().concat("/scripts"), import.meta.url);
     mkdirSync(scripts);
+
     const modules = new URL(
       process.cwd().concat("/scripts/modules"),
       import.meta.url
     );
     mkdirSync(modules);
+
     const test = new URL(
       process.cwd().concat("/scripts/test"),
       import.meta.url
     );
     mkdirSync(test);
+
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/configure/hardhat.config.js"),
+      __dirname.concat("/config/hardhat.config.js"),
       process.cwd().concat("/hardhat.config.js")
     );
+
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/contracts/HelloWorld.sol"),
+      __dirname.concat("/contracts/HelloWorld.sol"),
       process.cwd().concat("/src/HelloWorld.sol")
     );
+
     copyFileSync(
-      process.cwd().concat("/node_modules/@0xver/shell/scripts/src.deploy.js"),
+      __dirname.concat("/execs/src.deploy.js"),
       process.cwd().concat("/scripts/src.deploy.js")
     );
+
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/scripts/test/src.test.js"),
+      __dirname.concat("/execs/test/src.test.js"),
       process.cwd().concat("/scripts/test/src.test.js")
     );
+
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/scripts/modules/addrs.js"),
+      __dirname.concat("/execs/modules/addrs.js"),
       process.cwd().concat("/scripts/modules/addrs.js")
     );
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/scripts/modules/base64.js"),
+      __dirname.concat("/execs/modules/base64.js"),
       process.cwd().concat("/scripts/modules/base64.js")
     );
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/scripts/modules/deployer.js"),
+      __dirname.concat("/execs/modules/deployer.js"),
       process.cwd().concat("/scripts/modules/deployer.js")
     );
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/scripts/modules/signers.js"),
+      __dirname.concat("/execs/modules/signers.js"),
       process.cwd().concat("/scripts/modules/signers.js")
     );
     copyFileSync(
-      process
-        .cwd()
-        .concat("/node_modules/@0xver/shell/scripts/modules/time.js"),
+      __dirname.concat("/execs/modules/time.js"),
       process.cwd().concat("/scripts/modules/time.js")
     );
     let execute;
