@@ -9,17 +9,13 @@ A light framework for Hardhat smart contract development
 Install with [**npm**](https://www.npmjs.com):
 
 ```
-npm install --save-dev @0xver/shell
+npm install -g @0xver/shell
 ```
 
-```
-cd node_modules/@0xver/shell; npm link; cd
-```
-
-Return to repository location and initialize project:
+Initialize npm package in desired location:
 
 ```
-shell init
+npm init
 ```
 
 ## Installation using Yarn
@@ -27,25 +23,39 @@ shell init
 Install with [**yarn**](https://classic.yarnpkg.com):
 
 ```
-yarn add --dev @0xver/shell
+yarn global add @0xver/shell
 ```
 
-```
-cd node_modules/@0xver/shell; yarn link; cd
-```
-
-Return to repository location and initialize project:
+Initialize yarn package in desired location:
 
 ```
-shell init --yarn
+yarn init
 ```
 
 ## Getting Started
 
-List all commands:
+List commands:
 
 ```
 shell
+```
+
+Initialize project with npm 7 or later:
+
+```
+shell init
+```
+
+Initialize project with older versions of npm:
+
+```
+shell init --legacy
+```
+
+Initialize project with yarn:
+
+```
+shell init --yarn
 ```
 
 ## Compile
