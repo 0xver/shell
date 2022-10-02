@@ -12,12 +12,6 @@ Install with [**npm**](https://www.npmjs.com):
 npm install -g @0xver/shell
 ```
 
-Initialize npm package in desired location:
-
-```
-npm init
-```
-
 ## Installation using Yarn
 
 Install with [**yarn**](https://classic.yarnpkg.com):
@@ -26,18 +20,18 @@ Install with [**yarn**](https://classic.yarnpkg.com):
 yarn global add @0xver/shell
 ```
 
-Initialize yarn package in desired location:
-
-```
-yarn init
-```
-
 ## Getting Started
 
-List commands:
+Create package:
 
 ```
-shell
+shell create MyProjectName
+```
+
+Go to project location:
+
+```
+cd MyProjectName
 ```
 
 Initialize project with npm 7 or later:
