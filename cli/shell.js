@@ -22,22 +22,30 @@ const json = JSON.parse(
   readFileSync(directory.concat("package.json"), "utf-8")
 );
 const version = json.version;
-const verStr = `💫 @0xver/shell v${version}`
+const verStr = `💫 @0xver/shell v${version}`;
 const commands = `
 Usage: shell [PRIMARY OPTION] [OPTION EXTENSION]\n
+Remove < > from custom option extensions\n
 PRIMARY OPTIONS:\n
   init                ✨ Initialize project\n
   node                🌈 Run local blockchain\n
   compile             📝 Compile program\n
   test                🦺 Test program\n
   deploy              🎉 Deploy program\n
+  create              🎨 Create npm package\n
 OPTION EXTENSIONS:\n
   --legacy            💾 Initialize with legacy npm\n
   --yarn              🧶 Initialize with yarn\n
   --localhost         🏡 Deploy localhost program\n
   --goerli            🚧 Deploy goerli program\n
   --mainnet           🌍 Deploy mainnet program\n
-Extensions only apply for init and deploy options
+  <project-name>      🎭 Create name for package
+`;
+const creation = `
+✨ ${process.argv[3]} has been created!
+
+cd ${process.argv[3]}
+
 `;
 
 if (process.argv[2] == null) {
@@ -46,6 +54,23 @@ if (process.argv[2] == null) {
 
 if (process.argv[2] == "version" && process.argv[3] == null) {
   console.log(verStr);
+}
+
+if (process.argv[2] == "create" && process.argv[4] == null) {
+  exec(
+    `mkdir ${process.argv[3]}; cd ${process.argv[3]}; npm init -y;`,
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(error.message.trim());
+        return;
+      }
+      if (stderr) {
+        console.log(stderr.trim());
+        return;
+      }
+      console.log(`${stdout.trim()}\n${creation}`.trim(), `\n`);
+    }
+  );
 }
 
 if (process.argv[2] == "node" && process.argv[3] == null) {
