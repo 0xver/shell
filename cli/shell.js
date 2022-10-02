@@ -4,11 +4,8 @@ import { exec } from "node:child_process";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const json = JSON.parse(readFileSync("package.json", "utf8"));
-const version = json.version;
-const ascii = `  ██████  ██░ ██ ▓█████  ██▓     ██▓    
+const ascii = `
+  ██████  ██░ ██ ▓█████  ██▓     ██▓    
 ▒██    ▒ ▓██░ ██▒▓█   ▀ ▓██▒    ▓██▒    
 ░ ▓██▄   ▒██▀▀██░▒███   ▒██░    ▒██░    
   ▒   ██▒░▓█ ░██ ▒▓█  ▄ ▒██░    ▒██░    
@@ -16,29 +13,39 @@ const ascii = `  ██████  ██░ ██ ▓█████  ██
 ▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒░░ ▒░ ░░ ▒░▓  ░░ ▒░▓  ░
 ░ ░▒  ░ ░ ▒ ░▒░ ░ ░ ░  ░░ ░ ▒  ░░ ░ ▒  ░
 ░  ░  ░   ░  ░░ ░   ░     ░ ░     ░ ░   
-░     ░   ░  ░  ░   ░  ░    ░  ░    ░  ░`;
+░     ░   ░  ░  ░   ░  ░    ░  ░    ░  ░
+`;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const directory = __dirname.slice(0, -3);
+const json = JSON.parse(
+  readFileSync(directory.concat("package.json"), "utf-8")
+);
+const version = json.version;
+const verStr = `💫 @0xver/shell v${version}`
 const commands = `
-Usage: shell [PRIMARY OPTION] [SECONDARY OPTION]\n
+Usage: shell [PRIMARY OPTION] [OPTION EXTENSION]\n
 PRIMARY OPTIONS:\n
   init                ✨ Initialize project\n
   node                🌈 Run local blockchain\n
   compile             📝 Compile program\n
   test                🦺 Test program\n
   deploy              🎉 Deploy program\n
-SECONDARY OPTIONS:\n
+OPTION EXTENSIONS:\n
   --legacy            💾 Initialize with legacy npm\n
   --yarn              🧶 Initialize with yarn\n
   --localhost         🏡 Deploy localhost program\n
   --goerli            🚧 Deploy goerli program\n
   --mainnet           🌍 Deploy mainnet program\n
-Secondary options only apply for init and deploy\n`;
+Extensions only apply for init and deploy options
+`;
 
 if (process.argv[2] == null) {
   console.log(`${commands}`);
 }
 
 if (process.argv[2] == "version" && process.argv[3] == null) {
-  console.log(`${ascii}\n@0xver/shell v${version}`);
+  console.log(verStr);
 }
 
 if (process.argv[2] == "node" && process.argv[3] == null) {
@@ -150,6 +157,7 @@ if (
     process.argv[4] == null)
 ) {
   try {
+    console.log(`${verStr}\n${ascii}\n✨ Initializing shell...`);
     const src = new URL(process.cwd().concat("/src"), import.meta.url);
     mkdirSync(src);
 
