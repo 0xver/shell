@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { copyFileSync, mkdirSync, readFileSync } from "node:fs";
-import { exec } from "node:child_process";
+import { exec, spawn } from "node:child_process";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
@@ -74,27 +74,15 @@ if (process.argv[2] == "create" && process.argv[4] == null) {
 }
 
 if (process.argv[2] == "node" && process.argv[3] == null) {
-  const execute = exec("npx hardhat node");
-  execute.stdout.pipe(process.stdout);
+  spawn("npx hardhat node", { shell: true, stdio: "inherit" });
 }
 
 if (process.argv[2] == "compile" && process.argv[3] == null) {
-  exec("npx hardhat compile", (error, stdout, stderr) => {
-    if (error) {
-      console.log(error.message.trim());
-      return;
-    }
-    if (stderr) {
-      console.log(stderr.trim());
-      return;
-    }
-    console.log(stdout.trim());
-  });
+  spawn("npx hardhat compile", { shell: true, stdio: "inherit" });
 }
 
 if (process.argv[2] == "test" && process.argv[3] == null) {
-  const execute = exec("npx hardhat test");
-  execute.stdout.pipe(process.stdout);
+  spawn("npx hardhat test", { shell: true, stdio: "inherit" });
 }
 
 if (
@@ -105,20 +93,10 @@ if (
     process.argv[3] == "deploy" &&
     process.argv[4] == null)
 ) {
-  exec(
-    "npx hardhat run --network localhost scripts/src.deploy.js",
-    (error, stdout, stderr) => {
-      if (error) {
-        console.log(error.message.trim());
-        return;
-      }
-      if (stderr) {
-        console.log(stderr.trim());
-        return;
-      }
-      console.log(stdout.trim());
-    }
-  );
+  spawn("npx hardhat run --network localhost scripts/src.deploy.js", {
+    shell: true,
+    stdio: "inherit",
+  });
 }
 
 if (
@@ -129,20 +107,10 @@ if (
     process.argv[3] == "deploy" &&
     process.argv[4] == null)
 ) {
-  exec(
-    "npx hardhat run --network goerli scripts/src.deploy.js",
-    (error, stdout, stderr) => {
-      if (error) {
-        console.log(error.message.trim());
-        return;
-      }
-      if (stderr) {
-        console.log(stderr.trim());
-        return;
-      }
-      console.log(stdout.trim());
-    }
-  );
+  spawn("npx hardhat run --network goerli scripts/src.deploy.js", {
+    shell: true,
+    stdio: "inherit",
+  });
 }
 
 if (
@@ -153,20 +121,10 @@ if (
     process.argv[3] == "deploy" &&
     process.argv[4] == null)
 ) {
-  exec(
-    "npx hardhat run --network mainnet scripts/src.deploy.js",
-    (error, stdout, stderr) => {
-      if (error) {
-        console.log(error.message.trim());
-        return;
-      }
-      if (stderr) {
-        console.log(stderr.trim());
-        return;
-      }
-      console.log(stdout.trim());
-    }
-  );
+  spawn("npx hardhat run --network mainnet scripts/src.deploy.js", {
+    shell: true,
+    stdio: "inherit",
+  });
 }
 
 if (
@@ -182,7 +140,6 @@ if (
     process.argv[4] == null)
 ) {
   try {
-    console.log(`${verStr}\n${ascii}\n✨ Initializing shell...`);
     const src = new URL(process.cwd().concat("/src"), import.meta.url);
     mkdirSync(src);
 
@@ -241,21 +198,34 @@ if (
       __dirname.concat("/execs/modules/time.js"),
       process.cwd().concat("/scripts/modules/time.js")
     );
-    let execute;
+    console.log(`${verStr}\n${ascii}\n✨ Initializing shell...\n`);
     if (process.argv[2] == "--legacy" || process.argv[3] == "--legacy") {
-      execute = exec(
-        "npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers @0xver/solver"
+      spawn(
+        "npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers @0xver/solver",
+        {
+          shell: true,
+          stdio: "inherit",
+        }
       );
+      console.log(`${verStr}\n${ascii}\n✨ Initialized\n`);
     } else if (process.argv[2] == "--yarn" || process.argv[3] == "--yarn") {
-      execute = exec(
-        "yarn add --dev hardhat @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers @0xver/solver"
+      spawn(
+        "yarn add --dev hardhat @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers @0xver/solver",
+        {
+          shell: true,
+          stdio: "inherit",
+        }
       );
+      console.log(`${verStr}\n${ascii}\n✨ Initialized\n`);
     } else {
-      execute = exec(
-        "npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox @0xver/solver"
+      spawn(
+        "npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox @0xver/solver",
+        {
+          shell: true,
+          stdio: "inherit",
+        }
       );
     }
-    execute.stdout.pipe(process.stdout);
   } catch (err) {
     console.error(err.message);
   }
