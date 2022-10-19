@@ -179,25 +179,25 @@ if (
     );
 
     copyFileSync(
-      directory.concat("boilerplate/execs/modules/addrs.js"),
-      process.cwd().concat("/scripts/modules/addrs.js")
-    );
-    copyFileSync(
       directory.concat("boilerplate/execs/modules/base64.js"),
       process.cwd().concat("/scripts/modules/base64.js")
     );
+
     copyFileSync(
       directory.concat("boilerplate/execs/modules/deployer.js"),
       process.cwd().concat("/scripts/modules/deployer.js")
     );
+
     copyFileSync(
       directory.concat("boilerplate/execs/modules/signers.js"),
       process.cwd().concat("/scripts/modules/signers.js")
     );
+
     copyFileSync(
       directory.concat("boilerplate/execs/modules/time.js"),
       process.cwd().concat("/scripts/modules/time.js")
     );
+
     console.log(`${verStr}\n${ascii}\n✨ Initializing shell...\n`);
     if (process.argv[2] == "--legacy" || process.argv[3] == "--legacy") {
       spawn(
