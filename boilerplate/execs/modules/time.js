@@ -1,6 +1,6 @@
-module.exports = async function time(days) {
-  await network.provider.send("evm_increaseTime", [days * 86400]);
-  for (let i = 0; i < days * 100; i++) {
+module.exports = async function time(seconds, height) {
+  await network.provider.send("evm_increaseTime", [seconds]);
+  for (let i = 0; i < height; i++) {
     await network.provider.send("evm_mine");
   }
 };
