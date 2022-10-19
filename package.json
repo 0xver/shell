@@ -1,7 +1,7 @@
 {
   "name": "@0xver/shell",
   "license": "GPL-3.0-only",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A light framework for Hardhat smart contract development",
   "type": "module",
   "repository": {
