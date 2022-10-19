@@ -54,6 +54,7 @@ if (process.argv[2] == null) {
 
 if (process.argv[2] == "version" && process.argv[3] == null) {
   console.log(verStr);
+  console.log(directory);
 }
 
 if (process.argv[2] == "create" && process.argv[4] == null) {
@@ -159,43 +160,43 @@ if (
     mkdirSync(test);
 
     copyFileSync(
-      __dirname.concat("/config/hardhat.config.js"),
+      directory.concat("/boilerplate/config/hardhat.config.js"),
       process.cwd().concat("/hardhat.config.js")
     );
 
     copyFileSync(
-      __dirname.concat("/contracts/HelloWorld.sol"),
+      directory.concat("/boilerplate/contracts/HelloWorld.sol"),
       process.cwd().concat("/src/HelloWorld.sol")
     );
 
     copyFileSync(
-      __dirname.concat("/execs/src.deploy.js"),
+      directory.concat("/boilerplate/execs/src.deploy.js"),
       process.cwd().concat("/scripts/src.deploy.js")
     );
 
     copyFileSync(
-      __dirname.concat("/execs/test/src.test.js"),
+      directory.concat("/boilerplate/execs/test/src.test.js"),
       process.cwd().concat("/scripts/test/src.test.js")
     );
 
     copyFileSync(
-      __dirname.concat("/execs/modules/addrs.js"),
+      directory.concat("/boilerplate/execs/modules/addrs.js"),
       process.cwd().concat("/scripts/modules/addrs.js")
     );
     copyFileSync(
-      __dirname.concat("/execs/modules/base64.js"),
+      directory.concat("/boilerplate/execs/modules/base64.js"),
       process.cwd().concat("/scripts/modules/base64.js")
     );
     copyFileSync(
-      __dirname.concat("/execs/modules/deployer.js"),
+      directory.concat("/boilerplate/execs/modules/deployer.js"),
       process.cwd().concat("/scripts/modules/deployer.js")
     );
     copyFileSync(
-      __dirname.concat("/execs/modules/signers.js"),
+      directory.concat("/boilerplate/execs/modules/signers.js"),
       process.cwd().concat("/scripts/modules/signers.js")
     );
     copyFileSync(
-      __dirname.concat("/execs/modules/time.js"),
+      directory.concat("/boilerplate/execs/modules/time.js"),
       process.cwd().concat("/scripts/modules/time.js")
     );
     console.log(`${verStr}\n${ascii}\n✨ Initializing shell...\n`);
