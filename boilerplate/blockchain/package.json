@@ -1,0 +1,16 @@
+{
+  "name": "chain",
+  "license": "GPL-3.0-only",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx hardhat node",
+    "build": "npx hardhat compile",
+    "lint": "prettier --plugin-search-dir . --check .",
+    "format": "prettier --plugin-search-dir . --write ."
+  },
+  "devDependencies": {
+    "@0xver/solver": "*",
+    "@nomicfoundation/hardhat-toolbox": "*",
+    "hardhat": "*"
+  }
+}
