@@ -5,6 +5,8 @@
   "scripts": {
     "start": "npx hardhat node",
     "build": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run --network localhost scripts/src.deploy.js",
     "lint": "prettier --plugin-search-dir . --check .",
     "format": "prettier --plugin-search-dir . --write ."
   },
