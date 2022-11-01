@@ -28,6 +28,8 @@ Create contract or web3 project:
 shell contract MyProjectName
 ```
 
+or
+
 ```
 shell web3 MyProjectName
 ```
