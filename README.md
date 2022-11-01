@@ -22,10 +22,14 @@ yarn global add @0xver/shell
 
 ## Getting Started
 
-Create package:
+Create contract or web3 project:
 
 ```
-shell create MyProjectName
+shell contract MyProjectName
+```
+
+```
+shell web3 MyProjectName
 ```
 
 Go to project location:
@@ -34,60 +38,68 @@ Go to project location:
 cd MyProjectName
 ```
 
-Initialize project with npm 7 or later:
+Install project:
 
 ```
-shell init
+npm install
 ```
 
-Initialize project with older versions of npm:
+or
 
 ```
-shell init --legacy
+yarn install
 ```
 
-Initialize project with yarn:
-
-```
-shell init --yarn
-```
-
-## Compile
+## Compile Contract
 
 Compile program:
 
 ```
-shell compile
+npm run build
 ```
 
-## Test
+or
+
+```
+yarn build
+```
+
+## Test Contract
 
 Test program with Hardhat network:
 
 ```
-shell test
+npm run test
 ```
 
-## Deploy
-
-Deploy localhost program by running node in seperate terminal window:
+or
 
 ```
-shell node
+yarn test
 ```
 
-```
-shell deploy --localhost
-```
+## Deploy Contract
 
-Deploy goerli program:
+Start local blockchain:
 
 ```
-shell deploy --goerli
+npm run start
 ```
 
-Deploy mainnet program:
+or
 
 ```
-shell deploy --mainnet
+yarn start
+```
+
+Deploy to local blockchain:
+
+```
+npm run deploy
+```
+
+or
+
+```
+yarn deploy
 ```
