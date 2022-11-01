@@ -41,8 +41,6 @@ function creation(arg) {
 ✨ ${arg} has been created!
 
 cd ${arg}
-
-npm install
   `;
 }
 
@@ -57,7 +55,7 @@ if (process.argv[2] == "version" && process.argv[3] == null) {
 if (process.argv[2] == "contract" && process.argv[4] == null) {
   let arg;
   if (process.argv[3] == undefined) {
-    arg = "project";
+    arg = "contract";
   } else {
     arg = process.argv[3];
   }
@@ -73,7 +71,7 @@ if (process.argv[2] == "contract" && process.argv[4] == null) {
 if (process.argv[2] == "web3" && process.argv[4] == null) {
   let arg;
   if (process.argv[3] == undefined) {
-    arg = "project";
+    arg = "web3";
   } else {
     arg = process.argv[3];
   }
