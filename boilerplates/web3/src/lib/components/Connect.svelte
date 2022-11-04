@@ -17,7 +17,7 @@
 
 	async function handleClick() {
 		await provider().request({ method: 'eth_requestAccounts' });
-		promise = await getAddress();
+		promise = getAddress();
 	}
 
 	let promise = getAddress();
