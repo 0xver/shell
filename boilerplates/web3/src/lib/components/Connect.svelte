@@ -14,12 +14,13 @@
 		}
 		return button;
 	}
-	let promise = getAddress();
 
 	async function handleClick() {
 		await provider().request({ method: 'eth_requestAccounts' });
 		promise = await getAddress();
 	}
+
+	let promise = getAddress();
 </script>
 
 {#if !provider()}
