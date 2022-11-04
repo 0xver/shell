@@ -1,7 +1,6 @@
 <script>
-	import { address } from '$lib/modules/Address.svelte';
-	import { provider } from '$lib/modules/Provider.svelte';
-	let wallet = provider();
+	import { address } from '$lib/modules/Address.js';
+	import { provider } from '$lib/modules/Provider.js';
 
 	async function getAddress() {
 		let button;
@@ -18,12 +17,12 @@
 	let promise = getAddress();
 
 	async function handleClick() {
-		await wallet.request({ method: 'eth_requestAccounts' });
+		await provider().request({ method: 'eth_requestAccounts' });
 		promise = await getAddress();
 	}
 </script>
 
-{#if !wallet}
+{#if !provider()}
 	<!-- svelte-ignore security-anchor-rel-noreferrer -->
 	<a href="https://metamask.io" target="_blank"><button class="connect">Install MetaMask</button></a
 	>
