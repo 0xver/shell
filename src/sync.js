@@ -22,9 +22,9 @@ const repo = (arg, name) => {
       directory.concat(`boilerplates/${arg}/`),
       process.cwd().concat(`/${name}`)
     );
-    return true
+    return true;
   }
-}
+};
 
 export default function sync(arg, name) {
   if (arg === "contract") {
