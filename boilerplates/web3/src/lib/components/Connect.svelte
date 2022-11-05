@@ -25,9 +25,9 @@
 
 {#if !provider()}
   <!-- svelte-ignore security-anchor-rel-noreferrer -->
-  <a href="https://metamask.io" target="_blank"
-    ><button class="connect">Install MetaMask</button></a
-  >
+  <a href="https://metamask.io" target="_blank">
+    <button class="connect">Install MetaMask</button>
+  </a>
 {:else}
   {#await promise then value}
     <button class="connect" on:click={handleClick}>{value}</button>
