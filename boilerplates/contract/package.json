@@ -1,18 +1,18 @@
 {
-  "name": "contract",
-  "license": "GPL-3.0-only",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "npx hardhat node",
-    "build": "npx hardhat compile",
-    "test": "npx hardhat test",
-    "deploy": "npx hardhat run --network localhost scripts/src.deploy.js",
-    "lint": "prettier --plugin-search-dir . --check .",
-    "format": "prettier --plugin-search-dir . --write ."
-  },
-  "devDependencies": {
-    "@0xver/solver": "*",
-    "@nomicfoundation/hardhat-toolbox": "*",
-    "hardhat": "*"
-  }
+	"name": "contract",
+	"license": "GPL-3.0-only",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "npx hardhat node",
+		"build": "npx hardhat compile",
+		"test": "npx hardhat test",
+		"deploy": "npx hardhat run --network localhost scripts/src.deploy.js",
+		"lint": "prettier --use-tabs --trailing-comma 'none' --plugin-search-dir . --check .",
+		"format": "prettier --use-tabs --trailing-comma 'none' --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@0xver/solver": "*",
+		"@nomicfoundation/hardhat-toolbox": "*",
+		"hardhat": "*"
+	}
 }

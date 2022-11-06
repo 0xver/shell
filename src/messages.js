@@ -22,9 +22,9 @@ WEB3 COMMANDS:\n
 `;
 
 export function created(name, status) {
-  if (status === true) {
-    return `\n✨ ${name} has been created!\n\ncd ${name}\n`;
-  } else {
-    return `${name} has already been created.`;
-  }
+	if (status === true) {
+		return `\n✨ ${name} has been created!\n\ncd ${name}\n`;
+	} else {
+		return `${name} has already been created.`;
+	}
 }
