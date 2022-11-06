@@ -1,24 +1,24 @@
 {
-  "name": "@0xver/shell",
-  "license": "GPL-3.0-only",
-  "version": "1.5.4",
-  "description": "A light framework for blockchain and web3 development",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/0xver/shell.git"
-  },
-  "main": "src/shell.js",
-  "scripts": {
-    "lint": "prettier --plugin-search-dir . --check .",
-    "format": "prettier --plugin-search-dir . --write ."
-  },
-  "bin": {
-    "shell": "src/shell.js"
-  },
-  "devDependencies": {
-    "prettier": "^2.3.1",
-    "prettier-plugin-solidity": "^1.0.0-beta.24",
-    "prettier-plugin-svelte": "^2.8.0"
-  }
+	"name": "@0xver/shell",
+	"license": "GPL-3.0-only",
+	"version": "1.5.5",
+	"description": "A light framework for blockchain and web3 development",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/0xver/shell.git"
+	},
+	"main": "src/shell.js",
+	"scripts": {
+		"lint": "prettier --use-tabs --trailing-comma 'none' --plugin-search-dir . --check .",
+		"format": "prettier --use-tabs --trailing-comma 'none' --plugin-search-dir . --write ."
+	},
+	"bin": {
+		"shell": "src/shell.js"
+	},
+	"devDependencies": {
+		"prettier": "^2.3.1",
+		"prettier-plugin-solidity": "^1.0.0-beta.24",
+		"prettier-plugin-svelte": "^2.8.0"
+	}
 }
