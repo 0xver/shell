@@ -11,8 +11,8 @@
 		"format": "prettier --use-tabs --trailing-comma 'none' --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@0xver/solver": "*",
-		"@nomicfoundation/hardhat-toolbox": "*",
-		"hardhat": "*"
+		"@0xver/solver": "^2.0.3",
+		"@nomicfoundation/hardhat-toolbox": "^2.0.0",
+		"hardhat": "^2.12.2"
 	}
 }
