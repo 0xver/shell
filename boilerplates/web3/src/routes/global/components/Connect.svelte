@@ -25,15 +25,17 @@
 	async function handleClick() {
 		if (connectButton === onlineMetaMask) {
 			await provider().request({ method: "eth_requestAccounts" });
-			getAddress();
+			promise = getAddress();
 		}
 	}
 
 	if (provider() !== undefined) {
 		provider().on("accountsChanged", function (accounts) {
-			getAddress();
+			promise = getAddress();
 		});
 	}
+
+	let promise = getAddress();
 </script>
 
 {#if !provider()}
@@ -42,7 +44,9 @@
 		<button class="connect">{offlineMetaMask}</button>
 	</a>
 {:else}
-	<button class="connect" on:click={handleClick}>{connectButton}</button>
+	{#await promise then value}
+		<button class="connect" on:click={handleClick}>{value}</button>
+	{/await}
 {/if}
 
 <style>
