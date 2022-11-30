@@ -1,6 +1,6 @@
 <script>
 	import logo from "$lib/images/logo.svg";
-	import Connect from "$lib/global/components/Connect.svelte";
+	import Connect from "./components/Connect.svelte";
 </script>
 
 <header>

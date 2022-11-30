@@ -1,6 +1,5 @@
 <footer>
-	<!-- svelte-ignore security-anchor-rel-noreferrer -->
-	<p>Use this as a boilerplate for your web3 Svelte app</p>
+	<p>GNU General Public License v3.0 only</p>
 </footer>
 
 <style>

@@ -4,8 +4,6 @@ export function provider() {
 		if (typeof window.ethereum !== "undefined") {
 			wallet = window.ethereum;
 		}
-	} else {
-		wallet = false;
 	}
 	return wallet;
 }
