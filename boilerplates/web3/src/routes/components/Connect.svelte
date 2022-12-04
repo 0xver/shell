@@ -1,10 +1,15 @@
 <script>
-	import { address } from "../modules/Address.js";
+	import { account, getAccount } from "../modules/Account.js";
 	import { provider } from "../modules/Provider.js";
 
 	const onlineMetaMask = "Connect Wallet";
 	const offlineMetaMask = "Install MetaMask";
 	let connectButton = onlineMetaMask;
+
+	let subscriber;
+	account.subscribe((value) => {
+		subscriber = value;
+	});
 
 	function shrinkAddress(address) {
 		let start = address.slice(0, 5);
@@ -13,29 +18,28 @@
 	}
 
 	async function getAddress() {
+		if (provider() !== undefined) {
+			provider().on("accountsChanged", function (accounts) {
+				getAddress();
+			});
+		}
 		try {
-			let fullAddress = await address();
+			await getAccount();
+			let fullAddress = subscriber;
 			connectButton = shrinkAddress(fullAddress);
 		} catch (e) {
 			connectButton = onlineMetaMask;
 		}
 		return connectButton;
 	}
+	getAddress();
 
 	async function handleClick() {
 		if (connectButton === onlineMetaMask) {
 			await provider().request({ method: "eth_requestAccounts" });
-			promise = getAddress();
+			getAddress();
 		}
 	}
-
-	if (provider() !== undefined) {
-		provider().on("accountsChanged", function (accounts) {
-			promise = getAddress();
-		});
-	}
-
-	let promise = getAddress();
 </script>
 
 {#if !provider()}
@@ -44,9 +48,7 @@
 		<button class="connect">{offlineMetaMask}</button>
 	</a>
 {:else}
-	{#await promise then value}
-		<button class="connect" on:click={handleClick}>{value}</button>
-	{/await}
+	<button class="connect" on:click={handleClick}>{connectButton}</button>
 {/if}
 
 <style>
