@@ -11,9 +11,7 @@ export function shrinkAccountAddress(address) {
 }
 
 export function formatAccountAddress(address) {
-	if (address !== undefined) {
-		return ethers.utils.getAddress(address);
-	}
+	return ethers.utils.getAddress(address);
 }
 
 export async function getAccountAddress() {
@@ -27,6 +25,10 @@ export async function getAccountAddress() {
 
 if (provider() !== undefined) {
 	provider().on("accountsChanged", function (accounts) {
-		accountAddress.set(formatAccountAddress(accounts[0]));
+		let account;
+		if (accounts[0] !== undefined) {
+			account = formatAccountAddress(accounts[0]);
+		}
+		accountAddress.set(account);
 	});
 }
