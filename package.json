@@ -1,7 +1,7 @@
 {
 	"name": "@0xver/shell",
 	"license": "GPL-3.0-only",
-	"version": "1.9.2",
+	"version": "1.9.3",
 	"description": "A light framework for blockchain and web3 development",
 	"type": "module",
 	"repository": {
