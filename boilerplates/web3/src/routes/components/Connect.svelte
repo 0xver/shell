@@ -1,43 +1,46 @@
 <script>
-	import { account, getAccount } from "../modules/Account.js";
+	import {
+		accountAddress,
+		formatAccountAddress,
+		getAccountAddress
+	} from "../modules/Account.js";
 	import { provider } from "../modules/Provider.js";
 
 	const onlineMetaMask = "Connect Wallet";
 	const offlineMetaMask = "Install MetaMask";
-	let connectButton = onlineMetaMask;
+	let connectButton;
 
-	let subscriber;
-	account.subscribe((value) => {
-		subscriber = value;
+	getAccountAddress();
+
+	accountAddress.subscribe((value) => {
+		if (provider() !== undefined) {
+			if (value !== undefined) {
+				connectButton = shrink(value);
+			} else {
+				connectButton = onlineMetaMask;
+			}
+		}
 	});
 
-	function shrinkAddress(address) {
+	if (provider() !== undefined) {
+		provider().on("accountsChanged", function (accounts) {
+			if (accounts[0] !== undefined) {
+				connectButton = shrink(formatAccountAddress(accounts[0]));
+			} else {
+				connectButton = onlineMetaMask;
+			}
+		});
+	}
+
+	function shrink(address) {
 		let start = address.slice(0, 5);
 		let end = address.slice(address.length - 4);
 		return start.concat("...", end);
 	}
 
-	async function getAddress() {
-		if (provider() !== undefined) {
-			provider().on("accountsChanged", function (accounts) {
-				getAddress();
-			});
-		}
-		try {
-			await getAccount();
-			let fullAddress = subscriber;
-			connectButton = shrinkAddress(fullAddress);
-		} catch (e) {
-			connectButton = onlineMetaMask;
-		}
-		return connectButton;
-	}
-	getAddress();
-
 	async function handleClick() {
 		if (connectButton === onlineMetaMask) {
 			await provider().request({ method: "eth_requestAccounts" });
-			getAddress();
 		}
 	}
 </script>
