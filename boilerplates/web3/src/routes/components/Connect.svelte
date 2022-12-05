@@ -1,42 +1,26 @@
 <script>
 	import {
 		accountAddress,
-		formatAccountAddress,
+		shrinkAccountAddress,
 		getAccountAddress
 	} from "../modules/Account.js";
 	import { provider } from "../modules/Provider.js";
 
-	const onlineMetaMask = "Connect Wallet";
-	const offlineMetaMask = "Install MetaMask";
 	let connectButton;
 
-	getAccountAddress();
+	const onlineMetaMask = "Connect Wallet";
+	const offlineMetaMask = "Install MetaMask";
 
+	getAccountAddress();
 	accountAddress.subscribe((value) => {
 		if (provider() !== undefined) {
 			if (value !== undefined) {
-				connectButton = shrink(value);
+				connectButton = shrinkAccountAddress(value);
 			} else {
 				connectButton = onlineMetaMask;
 			}
 		}
 	});
-
-	if (provider() !== undefined) {
-		provider().on("accountsChanged", function (accounts) {
-			if (accounts[0] !== undefined) {
-				connectButton = shrink(formatAccountAddress(accounts[0]));
-			} else {
-				connectButton = onlineMetaMask;
-			}
-		});
-	}
-
-	function shrink(address) {
-		let start = address.slice(0, 5);
-		let end = address.slice(address.length - 4);
-		return start.concat("...", end);
-	}
 
 	async function handleClick() {
 		if (connectButton === onlineMetaMask) {
