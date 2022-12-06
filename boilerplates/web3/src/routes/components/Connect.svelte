@@ -1,35 +1,28 @@
 <script>
-	import {
-		accountAddress,
-		shrinkAccountAddress,
-		getAccountAddress
-	} from "../modules/Account.js";
-	import { provider } from "../modules/Provider.js";
+	import { accountAddress, shrinkAccountAddress } from "../modules/Account.js";
+	import { windowEthereum } from "../modules/Provider.js";
 
 	let connectButton;
 
 	const onlineMetaMask = "Connect Wallet";
 	const offlineMetaMask = "Install MetaMask";
 
-	getAccountAddress();
 	accountAddress.subscribe((value) => {
-		if (provider() !== undefined) {
-			if (value !== undefined) {
-				connectButton = shrinkAccountAddress(value);
-			} else {
-				connectButton = onlineMetaMask;
-			}
+		if (value !== undefined) {
+			connectButton = shrinkAccountAddress(value);
+		} else {
+			connectButton = onlineMetaMask;
 		}
 	});
 
 	async function handleClick() {
 		if (connectButton === onlineMetaMask) {
-			await provider().request({ method: "eth_requestAccounts" });
+			await windowEthereum().request({ method: "eth_requestAccounts" });
 		}
 	}
 </script>
 
-{#if !provider()}
+{#if !windowEthereum()}
 	<!-- svelte-ignore security-anchor-rel-noreferrer -->
 	<a href="https://metamask.io" target="_blank">
 		<button class="connect">{offlineMetaMask}</button>
@@ -45,14 +38,12 @@
 		border-radius: 100px;
 		border: 1px solid;
 		font-size: 24px;
-		color: var(--color-text);
+		color: var(--primary-color);
 		background-color: transparent;
 	}
 
 	.connect:hover {
-		color: var(--color-bg);
-		background-color: var(--color-text);
-		border: 1px solid;
-		border-color: var(--color-text);
+		background-color: var(--hover-fill-color);
+		border-color: var(--primary-color);
 	}
 </style>
