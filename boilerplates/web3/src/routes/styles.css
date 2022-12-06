@@ -2,21 +2,27 @@
 	--font-body: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	--font-mono: "Courier New", monospace;
-	--color-bg: #14181f;
-	--color-theme: #90aac0;
-	--color-text: #c9d1d8;
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
+	--bg-color: #14181f;
+	--hover-fill-color: #242931;
+	--primary-color: #c9d1d8;
+	--secondary-color: #23b469;
+	--tertiary-color: #2669bf;
+	--quaternary-color: #3d4450;
 	font-family: var(--font-body);
-	color: var(--color-text);
-	background-color: var(--color-bg);
+	color: var(--primary-color);
+	background-color: var(--bg-color);
 }
 
 body {
-	min-height: 100vh;
 	margin: 0;
-	background-attachment: fixed;
-	background-size: 100vw 100vh;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
 }
 
 h1,
@@ -30,7 +36,7 @@ p {
 }
 
 a {
-	color: var(--color-theme);
+	color: var(--primary-color);
 	text-decoration: none;
 }
 
@@ -39,32 +45,15 @@ a:hover {
 }
 
 h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	text-align: center;
+	margin: 0;
 }
 
 h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--color-text);
-}
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 0;
 }
 
 input,
@@ -77,8 +66,8 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
+@media only screen and (max-width: 390px) {
+	section {
+		flex: 0.8;
 	}
 }
