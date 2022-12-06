@@ -53,3 +53,15 @@ Check the package version:
 ```
 shell version
 ```
+
+## Resources
+
+- [EIP-20: Token Standard](https://eips.ethereum.org/EIPS/eip-20)
+- [EIP-165: Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165)
+- [EIP-173: Contract Ownership Standard](https://eips.ethereum.org/EIPS/eip-173)
+- [EIP-721: Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
+- [EIP-1155: Multi Token Standard](https://eips.ethereum.org/EIPS/eip-1155)
+- [EIP-1193: Ethereum Provider JavaScript API](https://eips.ethereum.org/EIPS/eip-1193)
+- [Solver: 0xver smart contract implementations](https://github.com/0xver/solver)
+- [Contracts: OpenZeppelin smart contract implementations](https://github.com/OpenZeppelin/openzeppelin-contracts)
+- [SvelteKit: Framework for building extremely high-performance web apps](https://kit.svelte.dev/docs/introduction)
