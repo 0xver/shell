@@ -1,3 +1,7 @@
+<script>
+	import Balance from "./components/Balance.svelte";
+</script>
+
 <svelte:head>
 	<title>Hello, world!</title>
 	<meta name="description" content="Svelte web3" />
@@ -5,18 +9,13 @@
 
 <section>
 	<h1>Hello, world!</h1>
+	<div class="margin-top">
+		<Balance />
+	</div>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
+	.margin-top {
+		margin-top: 30px;
 	}
 </style>
