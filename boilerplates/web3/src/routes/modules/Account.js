@@ -1,4 +1,4 @@
-import { windowEthereum, provider } from "./Provider.js";
+import { windowEthereum } from "./Provider.js";
 import { ethers } from "ethers";
 import { writable } from "svelte/store";
 
@@ -29,8 +29,10 @@ export async function getAccountAddress() {
 }
 
 export async function getAccountBalance(address) {
+	accountBalance.set(0);
 	if (windowEthereum() !== undefined) {
 		if (address !== undefined) {
+			let provider = new ethers.providers.Web3Provider(window.ethereum);
 			let wei = await provider.getBalance(address);
 			let eth = ethers.utils.formatEther(wei);
 			accountBalance.set(Number(eth));
@@ -39,6 +41,7 @@ export async function getAccountBalance(address) {
 }
 
 if (windowEthereum() !== undefined) {
+	let provider = new ethers.providers.Web3Provider(window.ethereum);
 	windowEthereum().on("accountsChanged", function (accounts) {
 		let account;
 		accountBalance.set(0);
@@ -55,6 +58,9 @@ if (windowEthereum() !== undefined) {
 					let eth = ethers.utils.formatEther(balance);
 					accountBalance.set(Number(eth));
 				});
+			});
+			windowEthereum().on("chainChanged", function (chainId) {
+				getAccountBalance(value);
 			});
 		}
 	});
