@@ -7,7 +7,7 @@
 	<div class="nav">
 		<!-- svelte-ignore security-anchor-rel-noreferrer -->
 		<a href="https://github.com/0xver/shell" target="_blank">
-			<img src={logo} alt="GitHub" />
+			<img src={logo} alt="logo" />
 		</a>
 	</div>
 	<div class="nav">
