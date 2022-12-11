@@ -9,13 +9,11 @@
 
 <section>
 	<h1>Hello, world!</h1>
-	<div class="margin-top">
-		<Balance />
-	</div>
+	<Balance />
 </section>
 
 <style>
-	.margin-top {
-		margin-top: 30px;
+	h1 {
+		margin-bottom: 30px;
 	}
 </style>
