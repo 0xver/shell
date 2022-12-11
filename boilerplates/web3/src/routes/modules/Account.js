@@ -19,7 +19,7 @@ export function formatAccountAddress(address) {
 export async function getAccountAddress() {
 	accountBalance.set(0);
 	if (windowEthereum() !== undefined) {
-		let accounts = await windowEthereum().request({ method: "eth_accounts" });
+		let accounts = await window.ethereum.request({ method: "eth_accounts" });
 		if (accounts.length !== 0) {
 			let account = formatAccountAddress(accounts[0]);
 			getAccountBalance(account);
@@ -42,7 +42,7 @@ export async function getAccountBalance(address) {
 
 if (windowEthereum() !== undefined) {
 	let provider = new ethers.providers.Web3Provider(window.ethereum);
-	windowEthereum().on("accountsChanged", function (accounts) {
+	window.ethereum.on("accountsChanged", function (accounts) {
 		let account;
 		accountBalance.set(0);
 		if (accounts[0] !== undefined) {
@@ -59,7 +59,7 @@ if (windowEthereum() !== undefined) {
 					accountBalance.set(Number(eth));
 				});
 			});
-			windowEthereum().on("chainChanged", function (chainId) {
+			window.ethereum.on("chainChanged", function (chainId) {
 				getAccountBalance(value);
 			});
 		}
