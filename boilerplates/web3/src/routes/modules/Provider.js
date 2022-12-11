@@ -1,7 +1,3 @@
 export function windowEthereum() {
-	if (typeof window !== "undefined") {
-		if (typeof window.ethereum !== "undefined") {
-			return window.ethereum;
-		}
-	}
+	return (typeof window !== "undefined" && window.ethereum) || undefined;
 }
