@@ -1,8 +1,8 @@
 {
 	"name": "@0xver/shell",
 	"license": "GPL-3.0-only",
-	"version": "3.0.1",
-	"description": "Quickstart local boilerplates",
+	"version": "3.0.2",
+	"description": "Quickstart boilerplates locally",
 	"type": "module",
 	"repository": {
 		"type": "git",
