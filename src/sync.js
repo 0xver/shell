@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { directory } from "./package.js";
+import { directory, reponame } from "./package.js";
+import { error } from "./messages.js";
 
 const clone = (src, dest) => {
 	const exist = fs.existsSync(src);
@@ -17,19 +18,33 @@ const clone = (src, dest) => {
 };
 
 const repo = (arg, name) => {
-	if (!fs.existsSync(process.cwd().concat(`/${name}/package.json`))) {
-		clone(
-			directory.concat(`boilerplates/${arg}/`),
-			process.cwd().concat(`/${name}`)
-		);
-		return true;
+	if (arg !== "--add") {
+		if (!fs.existsSync(process.cwd().concat(`/${name}/package.json`))) {
+			clone(
+				directory.concat(`boilerplates/${arg}/`),
+				process.cwd().concat(`/${name}`)
+			);
+			return true;
+		} else {
+			return false;
+		}
+	} else if (arg === "--add") {
+		if (
+			!fs.existsSync(directory.concat(`boilerplates/${name}/`)) &&
+			!fs.existsSync(process.cwd().concat(`/node_modules/.package-lock.json`))
+		) {
+			clone(process.cwd(), directory.concat(`boilerplates/${name}/`));
+			return true;
+		} else {
+			return false;
+		}
 	}
 };
 
 export default function sync(arg, name) {
-	if (arg === "contract") {
-		return repo("contract", name);
-	} else if (arg === "web3") {
-		return repo("web3", name);
+	try {
+		return repo(arg, name);
+	} catch (e) {
+		console.log(error(name));
 	}
 }
