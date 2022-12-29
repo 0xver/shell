@@ -12,7 +12,7 @@ Install with [**npm**](https://www.npmjs.com):
 npm install -g @0xver/shell
 ```
 
-## Getting Started
+## Getting Started Using Default Boilerplates
 
 Create contract or web3 project:
 
@@ -51,7 +51,37 @@ shell
 Check the package version:
 
 ```
-shell version
+shell --version
+```
+
+## Add Boilerplate
+
+In the current directory of the boilerplate:
+
+```
+shell --add
+```
+
+## Use Boilerplate
+
+In the directory the new repo will be created in:
+
+```
+shell <boilerplate>
+```
+
+or
+
+```
+shell <boilerplate> <project-name>
+```
+
+## Manage and Delete Boilerplates
+
+Change the name or delete boilerplates by finding their location:
+
+```
+shell --path
 ```
 
 ## Resources
