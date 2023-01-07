@@ -1,8 +1,8 @@
 {
 	"name": "@0xver/shell",
 	"license": "GPL-3.0-only",
-	"version": "3.0.2",
-	"description": "Quickstart boilerplates locally",
+	"version": "3.0.3",
+	"description": "Web3 focused local boilerplate library",
 	"type": "module",
 	"repository": {
 		"type": "git",
@@ -17,8 +17,8 @@
 		"shell": "src/shell.js"
 	},
 	"devDependencies": {
-		"prettier": "^2.3.1",
-		"prettier-plugin-solidity": "^1.0.0-beta.24",
-		"prettier-plugin-svelte": "^2.8.0"
+		"prettier": "^2.8.2",
+		"prettier-plugin-solidity": "^1.1.1",
+		"prettier-plugin-svelte": "^2.9.0"
 	}
 }
