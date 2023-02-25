@@ -1,7 +1,7 @@
 {
 	"name": "@0xver/shell",
 	"license": "GPL-3.0-only",
-	"version": "3.0.4",
+	"version": "3.0.5",
 	"description": "Web3 focused local boilerplate library",
 	"type": "module",
 	"repository": {
