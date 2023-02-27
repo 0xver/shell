@@ -1,46 +1,96 @@
 #!/usr/bin/env node
-import sync from "./sync.js";
-import { reponame, directory } from "./package.js";
-import { commands, created, added, version } from "./messages.js";
+import { spawn } from "child_process";
+import {
+	version,
+	directions,
+	help_clone,
+	help_gptpy,
+	help_hardhat,
+	help_svelte
+} from "./messages.js";
 
-function args(arg2, arg3, arg4) {
-	if (arg2 === "--version" && arg3 === undefined && arg4 === undefined) {
+function commands() {
+	const arg2 = process.argv[2];
+	const arg3 = process.argv[3];
+	const arg4 = process.argv[4];
+	const arg5 = process.argv[5];
+
+	if (arg2 === undefined) {
+		console.log(directions);
+	}
+
+	if (arg2 === "--version" && arg3 === undefined) {
 		console.log(version);
-	} else if (arg2 === "--path" && arg3 === undefined && arg4 === undefined) {
-		console.log(directory);
-	} else if (arg2 === "--add" && arg4 === undefined) {
-		processing(false);
-	} else if (
-		arg2 !== "--version" &&
-		arg2 !== "--add" &&
-		arg2 !== undefined &&
+	}
+
+	if (arg2 === "clone" && arg3 === "gptpy" && arg4 === undefined) {
+		const execute = spawn("git", [
+			"clone",
+			"https://github.com/0xver/gptpy.git",
+			"--progress"
+		]);
+		execute.stdout.pipe(process.stdout);
+		execute.stderr.pipe(process.stderr);
+	}
+
+	if (arg2 === "clone" && arg3 === "hardhat" && arg4 === undefined) {
+		const execute = spawn("git", [
+			"clone",
+			"https://github.com/0xver/hardhat.git",
+			"--progress"
+		]);
+		execute.stdout.pipe(process.stdout);
+		execute.stderr.pipe(process.stderr);
+	}
+
+	if (arg2 === "clone" && arg3 === "svelte" && arg4 === undefined) {
+		const execute = spawn("git", [
+			"clone",
+			"https://github.com/0xver/svelte.git",
+			"--progress"
+		]);
+		execute.stdout.pipe(process.stdout);
+		execute.stderr.pipe(process.stderr);
+	}
+
+	if ((arg2 === "-h" || arg2 === "--help") && arg3 === undefined) {
+		console.log(directions);
+	}
+
+	if (
+		arg2 === "clone" &&
+		(arg3 === "-h" || arg3 === "--help") &&
 		arg4 === undefined
 	) {
-		processing(true);
-	} else {
-		console.log(commands);
+		console.log(help_clone);
+	}
+
+	if (
+		arg2 === "clone" &&
+		arg3 === "gptpy" &&
+		(arg4 === "-h" || arg4 === "--help") &&
+		arg5 === undefined
+	) {
+		console.log(help_gptpy);
+	}
+
+	if (
+		arg2 === "clone" &&
+		arg3 === "hardhat" &&
+		(arg4 === "-h" || arg4 === "--help") &&
+		arg5 === undefined
+	) {
+		console.log(help_hardhat);
+	}
+
+	if (
+		arg2 === "clone" &&
+		arg3 === "svelte" &&
+		(arg4 === "-h" || arg4 === "--help") &&
+		arg5 === undefined
+	) {
+		console.log(help_svelte);
 	}
 }
 
-function processing(create) {
-	let arg;
-	if (process.argv[3] === undefined) {
-		if (create !== true) {
-			arg = reponame;
-		} else {
-			arg = "project";
-		}
-	} else {
-		arg = process.argv[3];
-	}
-	const copy = sync(process.argv[2], arg);
-	if (copy !== undefined) {
-		if (create !== true) {
-			console.log(added(arg, copy));
-		} else {
-			console.log(created(arg, copy));
-		}
-	}
-}
-
-args(process.argv[2], process.argv[3], process.argv[4]);
+commands();
