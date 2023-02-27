@@ -1,8 +1,8 @@
 {
 	"name": "@0xver/shell",
 	"license": "GPL-3.0-only",
-	"version": "3.0.6",
-	"description": "Web3 focused local boilerplate library",
+	"version": "4.0.0",
+	"description": "Install repos in the 0xver ecosystem with ease",
 	"type": "module",
 	"repository": {
 		"type": "git",
@@ -17,8 +17,6 @@
 		"shell": "src/shell.js"
 	},
 	"devDependencies": {
-		"prettier": "^2.8.2",
-		"prettier-plugin-solidity": "^1.1.1",
-		"prettier-plugin-svelte": "^2.9.0"
+		"prettier": "^2.8.4"
 	}
 }
