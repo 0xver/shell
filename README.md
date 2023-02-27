@@ -2,96 +2,56 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Web3 focused local boilerplate library
+### Install repos in the 0xver ecosystem with ease
+
+Shell is an easy-to-use command-line tool that simplifies the process of installing repositories within the 0xver ecosystem.
 
 ## Installation
 
-Install with [**npm**](https://www.npmjs.com):
+Install globally with [**npm**](https://www.npmjs.com):
+
+(Note that there are no dependencies used with Shell)
 
 ```
 npm install -g @0xver/shell
 ```
 
-## Getting Started Using Default Boilerplates
+## Usage
 
-Create contract or web3 project:
-
-```
-shell contract MyProjectName
-```
-
-or
-
-```
-shell web3 MyProjectName
-```
-
-Go to project location:
-
-```
-cd MyProjectName
-```
-
-Install project:
-
-```
-npm install
-```
-
-## Command Options
-
-List all available commands:
+Open the command-line tool instructions
 
 ```
 shell
 ```
 
-## Check Version
+Install 0xver GPTpy
 
-Check the package version:
+```
+shell clone gptpy
+```
+
+Install 0xver Hardhat
+
+```
+shell clone hardhat
+```
+
+Install 0xver Svelte
+
+```
+shell clone svelte
+```
+
+Check the current version
 
 ```
 shell --version
 ```
 
-## Add Boilerplate
-
-In the current directory of the boilerplate:
-
-```
-shell --add
-```
-
-## Use Boilerplate
-
-In the directory the new repo will be created in:
-
-```
-shell <boilerplate>
-```
-
-or
-
-```
-shell <boilerplate> <project-name>
-```
-
-## Manage and Delete Boilerplates
-
-Change the name or delete boilerplates by finding their location:
-
-```
-shell --path
-```
-
 ## Resources
 
-- [EIP-20: Token Standard](https://eips.ethereum.org/EIPS/eip-20)
-- [EIP-165: Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165)
-- [EIP-173: Contract Ownership Standard](https://eips.ethereum.org/EIPS/eip-173)
-- [EIP-721: Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
-- [EIP-1155: Multi Token Standard](https://eips.ethereum.org/EIPS/eip-1155)
-- [EIP-1193: Ethereum Provider JavaScript API](https://eips.ethereum.org/EIPS/eip-1193)
-- [Solver: 0xver smart contract implementations](https://github.com/0xver/solver)
-- [Contracts: OpenZeppelin smart contract implementations](https://github.com/OpenZeppelin/openzeppelin-contracts)
-- [SvelteKit: Framework for building extremely high-performance web apps](https://kit.svelte.dev/docs/introduction)
+Ecosystem development resources:
+
+- [0xver Hardhat](https://github.com/0xver/hardhat)
+- [0xver Svelte](https://github.com/0xver/svelte)
+- [0xver GPTpy](https://github.com/0xver/gptpy)
