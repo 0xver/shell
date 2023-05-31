@@ -10,8 +10,8 @@ Commands:\n
   -h, --help      Display help information for a specific command or option\n
 Options:\n
   gptpy           GPT-powered text generator with OpenAI Python library\n
-  hardhat         Streamline Hardhat workflow with an easy-to-use boilerplate\n
-  svelte          Svelte boilerplate for web3 frontends
+  hardhat         Hardhat-based boilerplate for smart contract development\n
+  svelte          Svelte-based boilerplate for web3 frontend development
 `;
 
 export const help_clone = `
@@ -37,20 +37,20 @@ Description:\n
 
 export const help_hardhat = `
 Usage: shell clone hardhat\n
-Streamline Hardhat workflow with an easy-to-use boilerplate\n
+Hardhat-based boilerplate for smart contract development\n
 Description:\n
-  The Hardhat boilerplate comes pre-configured with essential settings and
-  plugins, making it easy for developers to get started quickly. Streamline
-  your workflow by utilizing built-in scripts for testing, linting, and
-  deployment.
+  A Hardhat boilerplate that comes pre-configured with essential settings
+  and plugins, simplifying the process for developers to get started
+  quickly. Developers can streamline smart contract workflow by utilizing
+  built-in scripts for testing, linting, and deployment.
 `;
 
 export const help_svelte = `
 Usage: shell clone svelte\n
-Svelte-based boilerplate for web3 development\n
+Svelte-based boilerplate for web3 frontend development\n
 Description:\n
-  A lightweight pre-configured boilerplate for building decentralized
-  applications on the Ethereum network with Svelte. With built-in Web3
-  integration, this boilerplate streamlines development and makes it easy to
-  get started building powerful Web3 applications.
+  A lightweight Svelte boilerplate for building frontends for smart
+  contracts on blockchain networks. With built-in web3 integration, this
+  boilerplate streamlines development and makes it easy to get started
+  building powerful web3 frontend applications.
 `;
