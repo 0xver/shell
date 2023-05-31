@@ -2,9 +2,9 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-### Install repos in the 0xver ecosystem with ease
+### Build full-stack web3 applications with ease
 
-Shell is an easy-to-use command-line tool that simplifies the process of installing repositories within the 0xver ecosystem.
+Shell is an easy-to-use command-line tool that simplifies the process of building web3 applications. Similar to a web application, which has a frontend and a backend, a web3 application features a smart contract that resides on a blockchain and a frontend that interacts with this smart contract. Use `hardhat` to write and deploy smart contracts to the blockchain. Use `svelte` to develop frontends for deployed smart contracts. Additionally, `GPTpy` is provided as an auxiliary tool to assist with any learning curves new programmers might encounter.
 
 ## Installation
 
@@ -50,7 +50,7 @@ shell --version
 
 ## Resources
 
-Ecosystem development resources:
+Package development resources:
 
 - [0xver Hardhat](https://github.com/0xver/hardhat)
 - [0xver Svelte](https://github.com/0xver/svelte)
